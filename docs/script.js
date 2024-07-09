@@ -24,7 +24,7 @@ function spinRoulette() {
             clearInterval(spinInterval);
             const randomIndex = Math.floor(Math.random() * words.length);
             const randomWord = words[randomIndex];
-            const formattedWord = randomWord.replace(/ /g, "_").replace(/\(/g, "").replace(/\)/g, "").replace(/\./g, "");
+            const formattedWord = encodeURIComponent(randomWord.replace(/\s+/g, '_'));
             const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedWord}`;
             resultElement.innerHTML = `<a href="${wikipediaUrl}" target="_blank">${randomWord}</a>`;
             fetchWikipediaIntro(randomWord);
