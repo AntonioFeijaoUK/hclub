@@ -13,9 +13,12 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
         h1 {
-            color: #333;
+            color: inherit;
         }
         button {
             padding: 10px 20px;
@@ -28,12 +31,37 @@
             font-size: 24px;
             color: #007BFF;
         }
+        .result a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        .dark-mode .result {
+            color: #1e90ff;
+        }
+        .dark-mode .result a {
+            color: #1e90ff;
+        }
+        .toggle-button {
+            margin-top: 20px;
+        }
+        .paragraph {
+            margin-top: 20px;
+            font-size: 18px;
+            max-width: 600px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>Cybersecurity Word Roulette</h1>
     <button onclick="spinRoulette()">Spin the Roulette</button>
     <div class="result" id="result">Click the button to get a word!</div>
+    <div class="paragraph" id="paragraph"></div>
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <script>
         const words = [
@@ -81,7 +109,30 @@
         function spinRoulette() {
             const randomIndex = Math.floor(Math.random() * words.length);
             const randomWord = words[randomIndex];
-            document.getElementById('result').innerText = randomWord;
+            const formattedWord = randomWord.replace(/ /g, "_").replace(/\(/g, "").replace(/\)/g, "").replace(/\./g, "");
+            const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedWord}`;
+            document.getElementById('result').innerHTML = `<a href="${wikipediaUrl}" target="_blank">${randomWord}</a>`;
+            fetchWikipediaIntro(formattedWord);
+        }
+
+        async function fetchWikipediaIntro(word) {
+            const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${word}`;
+            try {
+                const response = await fetch(apiUrl);
+                if (response.ok) {
+                    const data = await response.json();
+                    const intro = data.extract;
+                    document.getElementById('paragraph').innerText = intro;
+                } else {
+                    document.getElementById('paragraph').innerText = 'Introduction not available.';
+                }
+            } catch (error) {
+                document.getElementById('paragraph').innerText = 'Error fetching introduction.';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
         }
     </script>
 </body>
