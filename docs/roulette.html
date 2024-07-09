@@ -46,7 +46,14 @@
             color: #1e90ff;
         }
         .toggle-button {
-            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
         .paragraph {
             margin-top: 20px;
@@ -57,11 +64,11 @@
     </style>
 </head>
 <body>
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <h1>Cybersecurity Word Roulette</h1>
     <button onclick="spinRoulette()">Spin the Roulette</button>
     <div class="result" id="result">Click the button to get a word!</div>
     <div class="paragraph" id="paragraph"></div>
-    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <script>
         const words = [
@@ -107,16 +114,29 @@
         ];
 
         function spinRoulette() {
-            const randomIndex = Math.floor(Math.random() * words.length);
-            const randomWord = words[randomIndex];
-            const formattedWord = randomWord.replace(/ /g, "_").replace(/\(/g, "").replace(/\)/g, "").replace(/\./g, "");
-            const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedWord}`;
-            document.getElementById('result').innerHTML = `<a href="${wikipediaUrl}" target="_blank">${randomWord}</a>`;
-            fetchWikipediaIntro(formattedWord);
+            const resultElement = document.getElementById('result');
+            const paragraphElement = document.getElementById('paragraph');
+            let spins = 30; // Number of words to show during the spin
+            let currentSpin = 0;
+            const spinInterval = setInterval(() => {
+                if (currentSpin >= spins) {
+                    clearInterval(spinInterval);
+                    const randomIndex = Math.floor(Math.random() * words.length);
+                    const randomWord = words[randomIndex];
+                    const formattedWord = randomWord.replace(/ /g, "_").replace(/\(/g, "").replace(/\)/g, "").replace(/\./g, "");
+                    const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedWord}`;
+                    resultElement.innerHTML = `<a href="${wikipediaUrl}" target="_blank">${randomWord}</a>`;
+                    fetchWikipediaIntro(formattedWord);
+                } else {
+                    const randomWord = words[Math.floor(Math.random() * words.length)];
+                    resultElement.innerText = randomWord;
+                    currentSpin++;
+                }
+            }, 100);
         }
 
         async function fetchWikipediaIntro(word) {
-            const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${word}`;
+            const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`;
             try {
                 const response = await fetch(apiUrl);
                 if (response.ok) {
