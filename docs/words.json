@@ -723,6 +723,26 @@
         "Zero-day attack protection",
         "Zero-day vulnerability",
         "Zero-trust architecture",
-        "Zobrist hashing"
+        "Zobrist hashing",
+        "MITRE ATT&CK",
+        "MITRE ATT&CK Framework",
+        "ATT&CK Techniques",
+        "ATT&CK Tactics",
+        "ATT&CK Matrix",
+        "ATT&CK Navigator",
+        "MITRE ATT&CK Evaluations",
+        "ATT&CK Enterprise",
+        "ATT&CK Mobile",
+        "ATT&CK for Cloud",
+        "MITRE D3FEND",
+        "MITRE CAPEC",
+        "TTPs (Tactics, Techniques, and Procedures)",
+        "Adversary Tactics",
+        "Adversary Techniques",
+        "Threat Actor Techniques",
+        "Adversary Behavior",
+        "Cyber Threat Intelligence",
+        "MITRE Cyber Analytics Repository",
+        "MITRE Engage"
     ]
 }
