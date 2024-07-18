@@ -9,7 +9,8 @@
     <meta name="keywords" content="Cybersecurity, cyber security word roulette, dark mode, JavaScript, Wikipedia, Encryption, Network Security, Antonio Feijao UK">
     <link rel="stylesheet" href="styles-index.css">
 </head>
-<body>
+<body class="dark-mode">
+    <button class="toggle-button" onclick="toggleMode()">Toggle Mode</button>
     <div class="bgimg">
         <div class="topleft">
             <p><strong>HackerClub.net</strong></p>
@@ -21,32 +22,42 @@
             <hr>
             <h2>Some Experiments</h2>
             <ul>
-            <li>
-                <a href="https://www.hackerclub.net/roulette" target="_blank">&bull; Cybersecurity words roulette</a>
-                <div class="comment">
-                    <p>An interactive page where users can learn and test their knowledge of cybersecurity terms. The game fetches definitions directly from Wikipedia using JavaScript with `async` and `fetch` for wikipedia API URL, providing an educational and engaging experience.</p>
-                </div>
-            </li>
-            <li>
-                <a href="https://www.cyberantonio.com" target="_blank">&bull; CyberAntonio</a>
-                <div class="comment">
-                    <p>A comprehensive website focusing on cybersecurity news, resources, and tools. It offers insights into the latest threats, trends, and best practices in the field of cybersecurity.</p>
-                </div>
-            </li>
-            <li>
-                <a href="https://www.antoniofeijao.com" target="_blank">&bull; Antonio Feijao's Personal Website</a>
-                <div class="comment">
-                    <p>The personal website of Antonio Feijao, showcasing his portfolio, projects, and professional achievements. The site includes detailed information about his work in technology and cybersecurity.</p>
-                </div>
-            </li>
-        </ul>
-
-            
+                <li>
+                    <a href="https://www.hackerclub.net/roulette" target="_blank">&bull; Cybersecurity words roulette</a>
+                    <div class="comment">
+                        <p>An interactive page where users can learn and test their knowledge of cybersecurity terms. The game fetches definitions directly from Wikipedia using JavaScript with <code>async</code> and <code>fetch</code> for Wikipedia API URL, providing an educational and engaging experience.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://www.cyberantonio.com" target="_blank">&bull; CyberAntonio</a>
+                    <div class="comment">
+                        <p>A comprehensive website focusing on cybersecurity news, resources, and tools. It offers insights into the latest threats, trends, and best practices in the field of cybersecurity.</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="https://www.antoniofeijao.com" target="_blank">&bull; Antonio Feijao's Personal Website</a>
+                    <div class="comment">
+                        <p>The personal website of Antonio Feijao, showcasing his portfolio, projects, and professional achievements. The site includes detailed information about his work in technology and cybersecurity.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="bottomleft">
             <p><a href="https://www.cloudsecurity.cc/" target="_blank">HackerClub.Net</a></p>
             <p><a href="https://www.antoniofeijao.com" target="_blank">© 2024 #AntonioFeijaoUK</a></p>
         </div>
     </div>
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            }
+        }
+    </script>
 </body>
 </html>
