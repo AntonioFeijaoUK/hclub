@@ -30,18 +30,37 @@ body.light-mode {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: white;
+}
+
+.bgimg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the background image */
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the dark overlay */
 }
 
 .topleft {
     position: absolute;
     top: 0;
     left: 16px;
+    z-index: 2; /* Ensure topleft content is above the dark overlay */
 }
 
 .bottomleft {
     position: absolute;
     bottom: 0;
     left: 16px;
+    z-index: 2; /* Ensure bottomleft content is above the dark overlay */
 }
 
 .middle {
@@ -98,6 +117,7 @@ body.dark-mode .comment {
     color: white;
     border: none;
     border-radius: 5px;
+    z-index: 3; /* Ensure the button is above everything */
 }
 
 body.light-mode .toggle-button {
