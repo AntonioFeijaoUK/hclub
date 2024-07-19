@@ -79,7 +79,13 @@ button {
 }
 
 .bottomleft {
-    position: absolute;
-    bottom: 0;
+    position: fixed; /* Change from absolute to fixed to keep it at the bottom left of the viewport */
+    bottom: 16px;
     left: 16px;
+    z-index: 3; /* Increase z-index if necessary to ensure it's above other elements */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better visibility */
+    color: white; /* Ensure text color is white for contrast */
+    padding: 10px; /* Add some padding for better appearance */
+    border-radius: 5px; /* Optional: Add border radius for smoother edges */
 }
+
