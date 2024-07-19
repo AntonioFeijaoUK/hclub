@@ -67,6 +67,15 @@ body.light-mode {
     border-radius: 5px; /* Optional: Add border radius for smoother edges */
 }
 
+.bottomleft a {
+    color: white; /* Ensure links are white for better visibility */
+    text-decoration: none; /* Remove underline for cleaner look */
+}
+
+.bottomleft a:hover {
+    text-decoration: underline; /* Add underline on hover for better UX */
+}
+
 .middle {
     max-width: 600px;
     margin: 0 auto;
