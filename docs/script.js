@@ -19,6 +19,7 @@ function spinRoulette() {
     const paragraphElement = document.getElementById('paragraph');
     let spins = 10; // Number of words to show during the spin
     let currentSpin = 0;
+
     const spinInterval = setInterval(() => {
         if (currentSpin >= spins) {
             clearInterval(spinInterval);
@@ -30,11 +31,21 @@ function spinRoulette() {
             fetchWikipediaIntro(randomWord);
         } else {
             const randomWord = words[currentSpin % words.length];
-            resultElement.innerText = randomWord;
+            const wordElement = document.createElement('div');
+            wordElement.className = 'falling-word';
+            wordElement.innerText = randomWord;
+            document.body.appendChild(wordElement);
+            
+            // Remove the word element after animation ends
+            wordElement.addEventListener('animationend', () => {
+                wordElement.remove();
+            });
+
             currentSpin++;
         }
     }, 100);
 }
+
 
 async function fetchWikipediaIntro(word) {
     const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`;
