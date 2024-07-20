@@ -46,7 +46,6 @@ function spinRoulette() {
     }, 100);
 }
 
-
 async function fetchWikipediaIntro(word) {
     const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`;
     try {
