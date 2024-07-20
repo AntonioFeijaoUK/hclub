@@ -88,7 +88,7 @@ async function fetchMerriamWebsterDefinition(word) {
 }
 
 function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
 }
 
 // Load words when the page is loaded
