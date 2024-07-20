@@ -55,9 +55,9 @@ async function fetchWikipediaIntro(word) {
 async function fetchMerriamWebsterDefinition(word) {
     // Replace underscores with spaces and extract the first word
     const firstWord = word.replace(/_/g, ' ').split(' ')[0];
-    const apiKey = '7cb5578e-0372-4f10-b9bc-9cb4ff9ae5af'; // Yes, I know this key is visible. This key is locked to the URL that was registered for.
-    //const apiUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(firstWord)}?key=${apiKey}`;
-    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/learners/json/${encodeURIComponent(firstWord)}?key=${apiKey}`;
+    const apiKey = '9fc03636-a4ab-4a02-b501-a86a94061432'; // Yes, I know this key is visible. This key is locked to the URL that was registered for (maybe!).
+    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(firstWord)}?key=${apiKey}`;
+    //const apiUrl = `https://www.dictionaryapi.com/api/v3/references/learners/json/${encodeURIComponent(firstWord)}?key=${apiKey}`;
     try {
         const response = await fetch(apiUrl);
         if (response.ok) {
