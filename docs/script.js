@@ -17,14 +17,14 @@ function spinRoulette() {
     }
     const resultElement = document.getElementById('result');
     const paragraphElement = document.getElementById('paragraph');
-    let spins = 30; // Number of words to show during the spin
+    let spins = 10; // Number of words to show during the spin
     let currentSpin = 0;
     const spinInterval = setInterval(() => {
         if (currentSpin >= spins) {
             clearInterval(spinInterval);
             const randomIndex = Math.floor(Math.random() * words.length);
             const randomWord = words[randomIndex];
-            const formattedWord = encodeURIComponent(randomWord.replace(/\s+/g, '_'));
+            const formattedWord = encodeURIComponent(randomWord.replace(/\s+/g, '_').replace(/_/g, ' '));
             const wikipediaUrl = `https://en.wikipedia.org/wiki/${formattedWord}`;
             resultElement.innerHTML = `<a href="${wikipediaUrl}" target="_blank">${randomWord}</a>`;
             fetchWikipediaIntro(randomWord);
@@ -53,8 +53,10 @@ async function fetchWikipediaIntro(word) {
 }
 
 async function fetchMerriamWebsterDefinition(word) {
+    // Replace underscores with spaces and extract the first word
+    const firstWord = word.replace(/_/g, ' ').split(' ')[0];
     const apiKey = '7cb5578e-0372-4f10-b9bc-9cb4ff9ae5af'; // Replace with your actual API key. This key is locked to the URL that was registered for.
-    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(word)}?key=${apiKey}`;
+    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(firstWord)}?key=${apiKey}`;
     try {
         const response = await fetch(apiUrl);
         if (response.ok) {
