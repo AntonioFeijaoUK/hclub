@@ -98,7 +98,7 @@ button {
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center the text */
     text-align: center;
-    animation: fall 4s ease-in-out;
+    animation: fall ss ease-in-out;
 }
 
 .light-mode {
