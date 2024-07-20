@@ -10,8 +10,8 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #333; /* Dark mode background */
+    color: #f0f0f0; /* Dark mode text color */
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -36,25 +36,12 @@ button {
 .result {
     margin-top: 20px;
     font-size: 24px;
-    color: #007BFF;
+    color: #1e90ff; /* Dark mode color */
 }
 
 .result a {
-    color: #007BFF;
+    color: #1e90ff; /* Dark mode color */
     text-decoration: none;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-.dark-mode .result {
-    color: #1e90ff;
-}
-
-.dark-mode .result a {
-    color: #1e90ff;
 }
 
 .toggle-button {
@@ -110,4 +97,17 @@ button {
     width: 100%;
     text-align: center;
     animation: fall 1s ease-in-out;
+}
+
+.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.light-mode .result {
+    color: #007BFF;
+}
+
+.light-mode .result a {
+    color: #007BFF;
 }
