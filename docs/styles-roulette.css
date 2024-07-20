@@ -93,8 +93,10 @@ button {
 }
 
 .falling-word {
-    position: absolute;
-    width: 100%;
+    position: fixed; /* Use fixed positioning */
+    top: 0; /* Start at the top of the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center the text */
     text-align: center;
     animation: fall 2s ease-in-out;
 }
