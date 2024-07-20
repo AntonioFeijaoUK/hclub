@@ -96,7 +96,7 @@ button {
     position: absolute;
     width: 100%;
     text-align: center;
-    animation: fall 1s ease-in-out;
+    animation: fall 2s ease-in-out;
 }
 
 .light-mode {
