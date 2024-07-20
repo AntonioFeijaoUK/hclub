@@ -17,7 +17,7 @@ function spinRoulette() {
     }
     const resultElement = document.getElementById('result');
     const paragraphElement = document.getElementById('paragraph');
-    let spins = 10; // Number of words to show during the spin
+    let spins = 30; // Number of words to show during the spin
     let currentSpin = 0;
 
     const spinInterval = setInterval(() => {
