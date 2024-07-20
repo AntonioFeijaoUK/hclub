@@ -45,10 +45,31 @@ async function fetchWikipediaIntro(word) {
             const intro = data.extract;
             document.getElementById('paragraph').innerText = intro;
         } else {
-            document.getElementById('paragraph').innerText = 'Introduction not available.';
+            fetchMerriamWebsterDefinition(word);
         }
     } catch (error) {
-        document.getElementById('paragraph').innerText = 'Error fetching introduction.';
+        fetchMerriamWebsterDefinition(word);
+    }
+}
+
+async function fetchMerriamWebsterDefinition(word) {
+    const apiKey = '7cb5578e-0372-4f10-b9bc-9cb4ff9ae5af'; // Replace with your actual API key. This key is locked to the URL that was registered for.
+    const apiUrl = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${encodeURIComponent(word)}?key=${apiKey}`;
+    try {
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+            const data = await response.json();
+            if (data.length > 0 && data[0].shortdef) {
+                const definition = data[0].shortdef[0];
+                document.getElementById('paragraph').innerText = definition;
+            } else {
+                document.getElementById('paragraph').innerText = 'Definition not available.';
+            }
+        } else {
+            document.getElementById('paragraph').innerText = 'Definition not available.';
+        }
+    } catch (error) {
+        document.getElementById('paragraph').innerText = 'Error fetching definition.';
     }
 }
 
