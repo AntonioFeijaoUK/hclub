@@ -87,18 +87,18 @@ button {
 }
 
 @keyframes fall {
-    0% { transform: translateY(-100%); opacity: 0; }
+    0% { transform: translateY(-100vh); opacity: 0; }
     50% { opacity: 1; }
-    100% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(100vh); opacity: 0; }
 }
 
 .falling-word {
     position: fixed; /* Use fixed positioning */
-    top: 0; /* Start at the top of the viewport */
+    top: -50px; /* Start just above the top of the viewport */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center the text */
     text-align: center;
-    animation: fall ss ease-in-out;
+    animation: fall 2s ease-in-out; /* Ensure duration is set correctly */
 }
 
 .light-mode {
