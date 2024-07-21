@@ -45,17 +45,17 @@ button {
 }
 
 .toggle-button {
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 10px;
+    padding: 20px;
     background: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
-    width: 100px; /* Set the width of the button */
-    height: 30px; /* Set the height of the button */
+    width: 80px; /* Set the width of the button */
+    height: 50px; /* Set the height of the button */
     border-radius: 5%; /* Make the button circular */
 }
 
@@ -67,14 +67,15 @@ button {
 }
 
 .bottomleft {
+    font-size: 8px;
     position: fixed; /* Change from absolute to fixed to keep it at the bottom left of the viewport */
     bottom: 5px;
     left: 5px;
     z-index: 3; /* Increase z-index if necessary to ensure it's above other elements */
     background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better visibility */
     color: white; /* Ensure text color is white for contrast */
-    padding: 5px; /* Add some padding for better appearance */
-    border-radius: 5px; /* Optional: Add border radius for smoother edges */
+    padding: 2px; /* Add some padding for better appearance */
+    border-radius: 2px; /* Optional: Add border radius for smoother edges */
 }
 
 .bottomleft a {
@@ -98,7 +99,7 @@ button {
     left: 30%; /* Center horizontally */
     transform: translateX(-50%); /* Center the text */
     text-align: center;
-    animation: fall 2s ease-in-out; /* Ensure duration is set correctly */
+    animation: fall 3s ease-in-out; /* Ensure duration is set correctly */
 }
 
 .light-mode {
