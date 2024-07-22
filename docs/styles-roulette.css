@@ -67,7 +67,7 @@ button {
 }
 
 .bottomleft {
-    font-size: 8px;
+    font-size: 10px;
     position: fixed; /* Change from absolute to fixed to keep it at the bottom left of the viewport */
     bottom: 5px;
     left: 5px;
