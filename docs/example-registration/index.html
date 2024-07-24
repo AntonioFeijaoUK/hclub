@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example of a registration page with a basic math challenge.</title>
+    <meta name="description" content="HackerClub.Net - Educational website about cybersecurity awareness, AWS, Networking, Security, Infrastructure, CyberSecurity, Linux, MacOS, and Python.">
+    <meta name="author" content="Antonio Feijao UK">
+    <meta name="keywords" content="Cybersecurity, cyber security word roulette, dark mode, JavaScript, Wikipedia, Encryption, Network Security, Antonio Feijao UK">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <button id="modeToggle">Toggle Mode</button>
+        <h1 id="greeting">Welcome</h1>
+        <input type="text" id="username" placeholder="Enter your name">
+        <div id="challenge"></div>
+        <input type="text" id="captchaAnswer" placeholder="Answer the challenge">
+        <button onclick="saveName()">Save Name</button>
+        <button id="logoutButton" onclick="clearName()">Logout</button>
+        <div id="countdown"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
